@@ -91,7 +91,7 @@ nav a:hover {
     color: #373737;
 }
 
-nav li:last-child a {
+nav li:first-child a {
     background: #d24d21;
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#d54e21), to(#b4421c));
     background: -webkit-linear-gradient(top, #d54e21, #b4421c);
@@ -102,7 +102,7 @@ nav li:last-child a {
     text-shadow: #b5421c 1px 1px 1px;
 }
 
-nav li:last-child a:hover {
+nav li:first-child a:hover {
     color: #ffac90;
     text-shadow: #666 1px 1px 1px;
 }
@@ -166,7 +166,7 @@ h2:before {
 }
 
 img {
-    width: 120px;
+    width: 140px;
     height: 180px;
     padding: 4px;
     border: 1px solid #369;
@@ -238,6 +238,7 @@ footer a {
     .nojs h2,
     section:target h2 {
         margin: 0 0 0 20px;
+        font-weight:bold;
         -webkit-transition: none;
         -moz-transition: none;
         -ms-transition: none;

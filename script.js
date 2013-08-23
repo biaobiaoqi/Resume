@@ -28,16 +28,16 @@ var Resume = function(window, document) {
         var sect = document.getElementsByTagName('section');
         var nav = document.createElement('nav');
         var ul = document.createElement('ul');
-        Array.prototype.forEach.call(sect, function(s, i) {
+        Array.prototype.forEach.call(sect, function(s, i) { //add section nav to each title of section
             ul.innerHTML += '<li><a href="#' + s.id + '">' + s.querySelector('h2').innerHTML + '</a></li>';
-            s.addEventListener('click', function(e) {
+            s.addEventListener('click', function(e) { //click for section in navbar
                 setTimeout(function() {
                     window.location.hash = '#' + s.id;
                 }, 10);
             }, false);
         });
         nav.appendChild(ul);
-        nav.addEventListener('click', function(e) {
+        nav.addEventListener('click', function(e) { //click for section nav 
             e.preventDefault();
             if(e.target.tagName.toLowerCase() == 'a') {
                 dest = document.getElementById(e.target.getAttribute('href').substring(1)).offsetTop;
