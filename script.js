@@ -29,17 +29,17 @@ var Resume = function(window, document) {
         var sect = document.getElementsByTagName('section');
         var nav = document.createElement('nav');
         var ul = document.createElement('ul');
-        Array.prototype.forEach.call(sect, function(s, i) { //add section nav to each title of section
+        Array.prototype.forEach.call(sect, function(s, i) {
             ul.innerHTML += '<li><a href="#' + s.id + '">' + s.querySelector('h2').innerHTML + '</a></li>';
-            s.addEventListener('click', function(e) { //click for section in navbar
-                dest = document.getElementById(s.id).offsetTop; //get offset of element
+            s.addEventListener('click', function(e) {
+                dest = s.offsetTop; 
                 hash = '#' + s.id;
                 clearTimeout(step);
                 scroll();
             }, false);
         });
         nav.appendChild(ul);
-        nav.addEventListener('click', function(e) { //click for section nav 
+        nav.addEventListener('click', function(e) {
             e.preventDefault();
             if(e.target.tagName.toLowerCase() == 'a') {
                 dest = document.getElementById(e.target.getAttribute('href').substring(1)).offsetTop;
