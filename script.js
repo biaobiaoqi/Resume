@@ -6,6 +6,7 @@ var Resume = function(window, document) {
     var step;
 
     var scroll = function() {
+
         var temp;
         if(window.innerWidth < 650 || start == document.documentElement.scrollTop + document.body.scrollTop) {
             window.location.hash = hash;
@@ -31,9 +32,10 @@ var Resume = function(window, document) {
         Array.prototype.forEach.call(sect, function(s, i) { //add section nav to each title of section
             ul.innerHTML += '<li><a href="#' + s.id + '">' + s.querySelector('h2').innerHTML + '</a></li>';
             s.addEventListener('click', function(e) { //click for section in navbar
-                setTimeout(function() {
-                    window.location.hash = '#' + s.id;
-                }, 10);
+                dest = document.getElementById(s.id).offsetTop; //get offset of element
+                hash = '#' + s.id;
+                clearTimeout(step);
+                scroll();
             }, false);
         });
         nav.appendChild(ul);
